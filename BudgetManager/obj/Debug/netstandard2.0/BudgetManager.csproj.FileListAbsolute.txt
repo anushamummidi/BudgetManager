@@ -1,0 +1,15 @@
+E:\Anusha\Code\BudgetManager\BudgetManager\BudgetManager\bin\Debug\netstandard2.0\BudgetManager.deps.json
+E:\Anusha\Code\BudgetManager\BudgetManager\BudgetManager\bin\Debug\netstandard2.0\BudgetManager.dll
+E:\Anusha\Code\BudgetManager\BudgetManager\BudgetManager\bin\Debug\netstandard2.0\ref\BudgetManager.dll
+E:\Anusha\Code\BudgetManager\BudgetManager\BudgetManager\bin\Debug\netstandard2.0\BudgetManager.pdb
+E:\Anusha\Code\BudgetManager\BudgetManager\BudgetManager\obj\Debug\netstandard2.0\BudgetManager.csprojAssemblyReference.cache
+E:\Anusha\Code\BudgetManager\BudgetManager\BudgetManager\obj\Debug\netstandard2.0\App.xaml.g.cs
+E:\Anusha\Code\BudgetManager\BudgetManager\BudgetManager\obj\Debug\netstandard2.0\BudgetManager.AssemblyInfoInputs.cache
+E:\Anusha\Code\BudgetManager\BudgetManager\BudgetManager\obj\Debug\netstandard2.0\BudgetManager.AssemblyInfo.cs
+E:\Anusha\Code\BudgetManager\BudgetManager\BudgetManager\obj\Debug\netstandard2.0\XamlC.stamp
+E:\Anusha\Code\BudgetManager\BudgetManager\BudgetManager\obj\Debug\netstandard2.0\BudgetManager.dll
+E:\Anusha\Code\BudgetManager\BudgetManager\BudgetManager\obj\Debug\netstandard2.0\ref\BudgetManager.dll
+E:\Anusha\Code\BudgetManager\BudgetManager\BudgetManager\obj\Debug\netstandard2.0\BudgetManager.pdb
+E:\Anusha\Code\BudgetManager\BudgetManager\BudgetManager\obj\Debug\netstandard2.0\BudgeEntry.xaml.g.cs
+E:\Anusha\Code\BudgetManager\BudgetManager\BudgetManager\obj\Debug\netstandard2.0\ExpenseList.xaml.g.cs
+E:\Anusha\Code\BudgetManager\BudgetManager\BudgetManager\obj\Debug\netstandard2.0\ExpenseEntry.xaml.g.cs
