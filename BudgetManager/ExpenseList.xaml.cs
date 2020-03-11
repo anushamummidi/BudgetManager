@@ -30,10 +30,10 @@ namespace BudgetManager
             foreach (var filename in files)
             {
                 string expense = File.ReadAllText(filename);
-                // expense will be like this:   "Costco groceries, 3/3/2020, $234.5, 2"
-                string [] contentsOfExpense = expense.Split(new char[] {','});
+                // expense will be like this:   "Costco groceries, $234.5, 3/3/2020, 2"
+                string[] contentsOfExpense = expense.Split(new char[] {','});
                 
-                ExpenseCategory category = ExpenseCategory.Groceries;
+                ExpenseCategory category = ExpenseCategory.Other;
 
                 switch (contentsOfExpense[3])
                 {
@@ -46,15 +46,13 @@ namespace BudgetManager
 
                 myexpenses.Add(new Expense
                 {
-                    Filename = filename,
                     Text = contentsOfExpense[0],
-                    Date = contentsOfExpense[1],
-                    Value = contentsOfExpense[2],
-                    Category = category
+                    Amount = contentsOfExpense[1],
+                    //Date = contentsOfExpense[2]
                 });
             }
 
-            listView.ItemsSource = myexpenses.ToList();
+            listView.ItemsSource = myexpenses.OrderBy(e => e.Amount).ToList();
         }
 
         async void OnExpenseAddedClicked(object sender, EventArgs e)

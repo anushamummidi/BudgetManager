@@ -32,6 +32,8 @@ namespace BudgetManager
                 filename = files[0];
                 string budget = File.ReadAllText(filename);
                 editor.Text = budget;
+
+                Navigation.PushAsync(new ExpenseList());
             }
             else
             {
@@ -41,24 +43,27 @@ namespace BudgetManager
 
         async void OnSaveButtonClicked(object sender,EventArgs e)
         {
-            Budget budget = new Budget();
-            if (string.IsNullOrWhiteSpace(budget.Filename))
+            if (!editor.Text.Equals(string.Empty))
             {
-                filename = Path.Combine(App.Folderpath,
-                    $"{Path.GetRandomFileName()}.MonthlyBudget.txt");
+                Budget budget = new Budget();
+                if (string.IsNullOrWhiteSpace(budget.Filename))
+                {
+                    filename = Path.Combine(App.Folderpath,
+                        $"{Path.GetRandomFileName()}.MonthlyBudget.txt");
 
-                budget.Filename = filename;
-                budget.Amount = editor.Text;
+                    budget.Filename = filename;
+                    budget.Amount = editor.Text;
 
-                File.WriteAllText(filename, editor.Text);
+                    File.WriteAllText(filename, editor.Text);
+                }
+                else
+                {
+                    budget.Amount = editor.Text;
+                    File.WriteAllText(budget.Filename, editor.Text);
+                }
+
+                await Navigation.PushAsync(new ExpenseList());
             }
-            else
-            {
-                budget.Amount = editor.Text;
-                File.WriteAllText(budget.Filename, editor.Text);
-            }
-
-            await Navigation.PushAsync(new ExpenseList());
         }
 
         private void OnCancelButtonClicked(object sender,EventArgs e)

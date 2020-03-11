@@ -4,10 +4,55 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="BudgetManager.ExpenseEntry">
+             x:Class="BudgetManager.ExpenseEntry">      
     <ContentPage.Content>
-        <StackLayout>
-
+        <StackLayout Margin="20,80,10,10"                     
+                     Orientation="Vertical" 
+                     Spacing="10">            
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Label Text="Expense Name" FontSize="18"
+                       TextColor="Coral" Grid.Row="0" Grid.Column="0"/>
+                <Label Text="Amount" Grid.Row="1" FontSize="18"                
+                       TextColor="Coral" Grid.Column="0"/>
+                <Label Text="Date" Grid.Row="2" FontSize="18" 
+                       TextColor="Coral" Grid.Column="0"/>
+                <Label Text="Category" Grid.Row="3" FontSize="18"
+                       TextColor="Coral" Grid.Column="0"/>
+                <Editor x:Name="ExpenseEditor" Grid.Row="0" Margin="0, 10, 0, 10"
+                        Grid.Column="1" BackgroundColor="AliceBlue" /> 
+                <Editor x:Name="AmountEditor" Grid.Row="1" 
+                        Grid.Column="1"  BackgroundColor="AliceBlue"/>
+                <DatePicker x:Name="ExpenseDatePicker" Grid.Row="2" 
+                        Grid.Column="1" BackgroundColor="AliceBlue" />
+                <Picker x:Name="CategoryPicker" Grid.Row="3" Title="Select expense category"
+                        Grid.Column="1" BackgroundColor="AliceBlue">
+                    <Picker.Items>
+                        <x:String>Travel</x:String>
+                        <x:String>Clothing</x:String>
+                        <x:String>Groceries</x:String>
+                        <x:String>Education</x:String>
+                        <x:String>Children</x:String>
+                        <x:String>Other</x:String>
+                    </Picker.Items>
+                </Picker>
+            </Grid>
+            <StackLayout Margin="50"
+                Orientation="Horizontal">
+                <Button Text="Add" x:Name="AddButton" 
+                        TextColor="DarkOliveGreen" Clicked="AddButton_Clicked"/>
+                <Button Text="Cancel" x:Name="CancelButton" 
+                        TextColor="DarkOliveGreen" Clicked="CancelButton_Clicked"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
