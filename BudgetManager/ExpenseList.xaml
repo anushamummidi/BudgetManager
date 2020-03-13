@@ -10,20 +10,22 @@
         <ToolbarItem Text="Add expense"
                      Clicked="OnExpenseAddedClicked" />
     </ContentPage.ToolbarItems>
-    <ListView x:Name="listView"
+    <!--<ListView x:Name="listView"
               Margin="20"
               ItemSelected="OnListViewItemSelected">
         <ListView.ItemTemplate>
             <DataTemplate>
-                <!--<StackLayout Orientation="Horizontal">-->
-                    <TextCell Text="{Binding Text}"
-                              Detail="{Binding Amount}"/>
-                    <!--<Label Text="{Binding Text}"/>
+                --><!--<StackLayout Orientation="Horizontal">--><!--
+                <TextCell Text="{Binding Text}"
+                              Detail="{Binding Amount}"
+                          d:Detail="{Binding Date}"/>
+
+                --><!--<Label Text="{Binding Text}"/>
                     <Label Text="{Binding Amount}"/>
                     --><!--<Image Source="{Binding CategoryIconPath}"/>--><!--
                     <Label Text="{Binding Date}"/>-->
-                <!--</StackLayout>-->
+                <!--</StackLayout>--><!--
             </DataTemplate>
         </ListView.ItemTemplate>
-    </ListView>
+    </ListView>-->
 </ContentPage>

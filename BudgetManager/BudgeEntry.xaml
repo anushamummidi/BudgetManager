@@ -17,10 +17,10 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Button Text="Save" BackgroundColor="Beige"
+            <Button Text="Save" BackgroundColor="Coral"
                     Clicked="OnSaveButtonClicked" />
             <Button Grid.Column="1"
-                    Text="Cancel" BackgroundColor="Beige"
+                    Text="Cancel" BackgroundColor="Coral"
                  Clicked="OnCancelButtonClicked"/>
         </Grid>
     </StackLayout>

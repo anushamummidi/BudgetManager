@@ -22,7 +22,7 @@ namespace BudgetManager
         {
             string expenseName = ExpenseEditor.Text;
             string expenseValue = AmountEditor.Text;
-            string dateTimeOfExpense = ExpenseDatePicker.Date.ToString();
+            string dateTimeOfExpense = ExpenseDatePicker.Date.Date.ToString();
             string category = "5";
             if (CategoryPicker.SelectedIndex >= 0)
             {

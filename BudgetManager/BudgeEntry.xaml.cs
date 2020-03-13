@@ -25,7 +25,7 @@ namespace BudgetManager
         {
             base.OnAppearing();
 
-            string[] files = Directory.GetFiles(App.Folderpath, "*.MonthlyBudget.txt");
+            string[] files = Directory.GetFiles(App.Folderpath, "MonthlyBudget.txt");
 
             if (files.Length != 0)
             {
@@ -33,7 +33,7 @@ namespace BudgetManager
                 string budget = File.ReadAllText(filename);
                 editor.Text = budget;
 
-                Navigation.PushAsync(new ExpenseList());
+                //Navigation.PushAsync(new ExpenseList());
             }
             else
             {
@@ -48,8 +48,7 @@ namespace BudgetManager
                 Budget budget = new Budget();
                 if (string.IsNullOrWhiteSpace(budget.Filename))
                 {
-                    filename = Path.Combine(App.Folderpath,
-                        $"{Path.GetRandomFileName()}.MonthlyBudget.txt");
+                    filename = Path.Combine(App.Folderpath, "MonthlyBudget.txt");
 
                     budget.Filename = filename;
                     budget.Amount = editor.Text;

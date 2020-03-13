@@ -32,27 +32,88 @@ namespace BudgetManager
                 string expense = File.ReadAllText(filename);
                 // expense will be like this:   "Costco groceries, $234.5, 3/3/2020, 2"
                 string[] contentsOfExpense = expense.Split(new char[] {','});
-                
-                ExpenseCategory category = ExpenseCategory.Other;
+
+                string category = "\U0001F4B2"; // General
 
                 switch (contentsOfExpense[3])
                 {
-                    case "0": category = ExpenseCategory.Travel; break;
-                    case "1": category = ExpenseCategory.Clothing; break;
-                    case "2": category = ExpenseCategory.Groceries; break;
-                    case "3": category = ExpenseCategory.Education; break;
-                    case "4": category = ExpenseCategory.Children; break;
+                    case "0": category = "\u2708"; break; // Travel
+                    case "1": category = "\U0001F457"; break; // Clothing
+                    case "2": category = "\U0001F966"; break; // Groceries
+                    case "3": category = "\U0001F4DA"; break; // Education
+                    case "4": category = "\U0001FA7A"; break; // Health
                 }
 
                 myexpenses.Add(new Expense
                 {
-                    Text = contentsOfExpense[0],
+                    Name = contentsOfExpense[0],
                     Amount = contentsOfExpense[1],
-                    //Date = contentsOfExpense[2]
+                    Date = contentsOfExpense[2],
+                    Category = category
                 });
             }
 
-            listView.ItemsSource = myexpenses.OrderBy(e => e.Amount).ToList();
+            // Create the ListView.
+            ListView expenseListView = new ListView
+            {
+                // Source of data items.
+                ItemsSource = myexpenses.OrderBy(e => e.Amount).ToList(),
+
+                // Define template for displaying each item.
+                // (Argument of DataTemplate constructor is called for 
+                //      each item; it must return a Cell derivative.)
+                ItemTemplate = new DataTemplate(() =>
+                {
+                    // Create views with bindings for displaying each property.
+                    Label expenseNameLabel = new Label();
+                    expenseNameLabel.SetBinding(Label.TextProperty, "Name");
+
+                    Label amountLabel = new Label();
+                    amountLabel.SetBinding(Label.TextProperty, "Amount");
+
+                    Label dateLabel = new Label();
+                    dateLabel.SetBinding(Label.TextProperty, "Date");
+
+                    Label categoryLabel = new Label();
+                    categoryLabel.FontFamily = "Segoe Color Emoji";
+                    categoryLabel.FontSize = 12;
+                    categoryLabel.SetBinding(Label.TextProperty, "Category");
+                    
+                    // Return an assembled ViewCell.
+                    return new ViewCell
+                    {
+                        View = new StackLayout
+                        {
+                            Orientation = StackOrientation.Horizontal,
+                            Children =
+                                {
+                                    categoryLabel,
+                                    new StackLayout
+                                    {
+                                        VerticalOptions = LayoutOptions.Center,
+                                        Spacing = 0,
+                                        Children =
+                                        {
+                                            expenseNameLabel,
+                                            dateLabel
+                                        }
+                                    },
+                                    amountLabel
+                                }
+                        }
+                    };
+                })
+            };
+
+            expenseListView.ItemSelected += ExpenseListView_ItemSelected;
+
+            this.Content = new StackLayout
+            {
+                Children =
+                {
+                    expenseListView
+                }
+            };
         }
 
         async void OnExpenseAddedClicked(object sender, EventArgs e)
@@ -63,7 +124,7 @@ namespace BudgetManager
             });
         }
 
-        private async void OnListViewItemSelected(object sender,
+        private async void ExpenseListView_ItemSelected(object sender,
             SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem != null)
