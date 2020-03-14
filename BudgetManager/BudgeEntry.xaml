@@ -23,6 +23,32 @@
                     Text="Cancel" BackgroundColor="Coral"
                  Clicked="OnCancelButtonClicked"/>
         </Grid>
+        <Grid Margin="30,60"> 
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Text="Expense Total" 
+                   FontSize="18"
+                   TextColor="Green" 
+                   Grid.Row="0"/>
+            <Label Text="Balance" 
+                   FontSize="18"
+                   TextColor="Green" 
+                   Grid.Row="1"/>
+            <Label x:Name="ExpenseTotalLabel" 
+                   FontSize="18"
+                   TextColor="Blue" 
+                   Grid.Row="0" Grid.Column="1"/>
+            <Label x:Name="BalanceLabel" 
+                   FontSize="18"
+                   TextColor="Blue" 
+                   Grid.Row="1" Grid.Column="1"/>
+        </Grid>
     </StackLayout>
 
 </ContentPage>

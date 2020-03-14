@@ -25,19 +25,46 @@ namespace BudgetManager
         {
             base.OnAppearing();
 
+            double budget = 0.0;
             string[] files = Directory.GetFiles(App.Folderpath, "MonthlyBudget.txt");
 
             if (files.Length != 0)
             {
                 filename = files[0];
-                string budget = File.ReadAllText(filename);
-                editor.Text = budget;
-
+                string budgetFromFile = File.ReadAllText(filename);
+                editor.Text = budgetFromFile;
+                budget = Double.Parse(budgetFromFile);
                 //Navigation.PushAsync(new ExpenseList());
             }
             else
             {
                 editor.Text = string.Empty;
+            }
+
+
+            string[] expenseFiles = Directory.GetFiles(App.Folderpath, "*.MonthlyExpenses.txt");
+            double expenses = 0.0;
+            foreach (string file in expenseFiles)
+            {
+                string expenseFileText = File.ReadAllText(file);
+
+                string[] expenseContent = expenseFileText.Split(new char[] { ',' });
+                if (!string.IsNullOrEmpty(expenseContent[1]))
+                {
+                    expenses += Double.Parse(expenseContent[1]);
+                }
+            }
+
+            ExpenseTotalLabel.Text = "$" + expenses.ToString();
+
+            double balance = budget - expenses;
+            if (balance < 0.0)
+            {
+                BalanceLabel.Text = "-$" + Math.Abs(balance).ToString();
+            }
+            else
+            { 
+                BalanceLabel.Text = "$" + balance.ToString(); 
             }
         }
 

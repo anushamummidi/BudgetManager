@@ -20,14 +20,26 @@
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Label Text="Expense Name" FontSize="18"
-                       TextColor="Coral" Grid.Row="0" Grid.Column="0"/>
-                <Label Text="Amount" Grid.Row="1" FontSize="18"                
-                       TextColor="Coral" Grid.Column="0"/>
-                <Label Text="Date" Grid.Row="2" FontSize="18" 
-                       TextColor="Coral" Grid.Column="0"/>
-                <Label Text="Category" Grid.Row="3" FontSize="18"
-                       TextColor="Coral" Grid.Column="0"/>
+                <Label Text="Expense Name" 
+                       FontSize="18"
+                       TextColor="Coral" 
+                       Grid.Row="0" 
+                       Grid.Column="0"/>
+                <Label Text="Amount" 
+                       Grid.Row="1" 
+                       FontSize="18"                
+                       TextColor="Coral" 
+                       Grid.Column="0"/>
+                <Label Text="Date" 
+                       Grid.Row="2" 
+                       FontSize="18" 
+                       TextColor="Coral" 
+                       Grid.Column="0"/>
+                <Label Text="Category" 
+                       Grid.Row="3" 
+                       FontSize="18"
+                       TextColor="Coral" 
+                       Grid.Column="0"/>
                 <Editor x:Name="ExpenseEditor" Grid.Row="0" Text="{Binding Name}"
                         Grid.Column="1" BackgroundColor="AliceBlue" /> 
                 <Editor x:Name="AmountEditor" Grid.Row="1" Text="{Binding Amount}" 
